@@ -7,7 +7,7 @@ __all__ = [
 	'get_element', 'get_int', 'get_float',
 
 	# errors
-	'UnknownCommand', 'UnknownArgument',  # command structure errors
+	'CommandError', 'UnknownCommand', 'UnknownArgument',  # command structure errors
 	'IllegalArgument', 'NumberOutOfRange', 'EmptyText',  # built-in command syntax errors
 
 	# for custom argument type
