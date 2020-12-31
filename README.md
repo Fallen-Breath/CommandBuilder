@@ -5,6 +5,8 @@ A simple in development command builder for MCDReforged
 
 Current it works as an plugin API of MCDReforged, so everything is inside a single file
 
+Example Plugin: [LocationMarker](https://github.com/TISUnion/LocationMarker)
+
 ### Custom Argument
 
 1. Create your custom argument class `MyArg`
