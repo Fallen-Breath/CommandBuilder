@@ -7,7 +7,7 @@ __all__ = [
 	'get_element', 'get_int', 'get_float',
 
 	# errors
-	'CommandError', 'UnknownCommand', 'UnknownArgument',  # command structure errors
+	'CommandError', 'UnknownCommand', 'UnknownArgument', 'UnknownRootArgument',  # command structure errors
 	'IllegalArgument', 'NumberOutOfRange', 'EmptyText',  # built-in command syntax errors
 
 	# for custom argument type
@@ -47,6 +47,13 @@ class UnknownArgument(CommandError):
 	"""
 	def __init__(self, fail_position):
 		super().__init__('Unknown Argument', fail_position)
+
+
+class UnknownRootArgument(UnknownArgument):
+	"""
+	The same as UnknownArgument, but it fails to match at root node
+	"""
+	pass
 
 
 class CommandSyntaxError(CommandError):
@@ -175,7 +182,7 @@ class ArgumentNode:
 				self._execute(command, command, {})
 			except IllegalLiteralArgument as e:
 				# the root literal node fails to parse the first element
-				raise UnknownArgument(e.fail_position_hint)
+				raise UnknownRootArgument(e.fail_position_hint)
 		else:
 			raise RuntimeError('Only Literal node is allowed to execute a command')
 
