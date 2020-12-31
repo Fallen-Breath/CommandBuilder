@@ -18,5 +18,5 @@ Example Plugin: [LocationMarker](https://github.com/TISUnion/LocationMarker)
 ### Custom Command Syntax Error
 
 1. Create your custom error class `MyError`
-2. Let `MyError inherit class `CommandSyntaxError`
+2. Let `MyError` inherit class `CommandSyntaxError`
 3. done
